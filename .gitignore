@@ -38,7 +38,7 @@ out/
 
 ### Kotlin ###
 .kotlin
-**/lib/**/*.jar
+lib/**/*.jar
 
 # compiled output
 **/dist
