@@ -12,6 +12,6 @@
 본인이 사용하는 registry에 따라서 `[registry]` 값을 변경해야 합니다.
 ```shell
 docker buildx build --platform linux/amd64,linux/arm64 \
--t seongjumoon/reward-service:log . \
+-t seongjumoon/colosseum-rwd:log . \
 --push
 ```

@@ -16,7 +16,7 @@
 ```shell
 docker buildx build --platform linux/amd64,linux/arm64 \
 -f .\Dockerfile.log \
--t [registry]/aggregate-service:log . \
+-t [registry]/colosseum-agg:log . \
 --push
 ```
 트레이스 데이터 확인을 위한 집계 애플리케이션 빌드는 다음 명령어를 사용합니다.
@@ -24,7 +24,7 @@ docker buildx build --platform linux/amd64,linux/arm64 \
 ```shell
 docker buildx build --platform linux/amd64,linux/arm64 \
 -f .\Dockerfile.trace \
--t  [registry]/aggregate-service:trace . \
+-t  [registry]/colosseum-agg:trace . \
 --push
 ```
 프로파일 데이터 확인을 위한 집계 애플리케이션 빌드는 다음 명령어를 사용합니다.
@@ -32,6 +32,6 @@ docker buildx build --platform linux/amd64,linux/arm64 \
 ```shell
 docker buildx build --platform linux/amd64,linux/arm64 \
 -f .\Dockerfile.profile \
--t [registry]/aggregate-service:profile . \
+-t [registry]/colosseum-agg:profile . \
 --push
 ```

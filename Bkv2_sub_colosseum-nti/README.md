@@ -15,6 +15,6 @@
 ```shell
 docker buildx build --platform linux/amd64,linux/arm64 \
 -f .\Dockerfile \ 
--t seongjumoon/notice-service:log . \
+-t seongjumoon/colosseum-nti:log . \
 --push
 ```
