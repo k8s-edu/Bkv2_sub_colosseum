@@ -15,7 +15,7 @@
 본인이 사용하는 registry에 따라서 `[registry]` 값을 변경해야 합니다.
 ```shell
 docker buildx build --platform linux/amd64,linux/arm64 \
--f .\Dockerfile.log \
+-f Dockerfile.log \
 -t [registry]/colosseum-agg:log . \
 --push
 ```
@@ -23,7 +23,7 @@ docker buildx build --platform linux/amd64,linux/arm64 \
 본인이 사용하는 registry에 따라서 `[registry]` 값을 변경해야 합니다.
 ```shell
 docker buildx build --platform linux/amd64,linux/arm64 \
--f .\Dockerfile.trace \
+-f Dockerfile.trace \
 -t  [registry]/colosseum-agg:trace . \
 --push
 ```
@@ -31,7 +31,7 @@ docker buildx build --platform linux/amd64,linux/arm64 \
 본인이 사용하는 registry에 따라서 `[registry]` 값을 변경해야 합니다.
 ```shell
 docker buildx build --platform linux/amd64,linux/arm64 \
--f .\Dockerfile.profile \
+-f Dockerfile.profile \
 -t [registry]/colosseum-agg:profile . \
 --push
 ```
