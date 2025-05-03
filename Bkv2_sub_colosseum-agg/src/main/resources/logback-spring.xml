@@ -1,0 +1,16 @@
+<configuration>
+    <!-- 커스텀 변환기 정의 -->
+    <conversionRule conversionWord="customLevel" converterClass="book.k8sinfra.aggregateservice.infrastructure.CustomLevelConverter" />
+
+    <!-- 콘솔 출력 설정 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>{"@timestamp":"%d{yyyy-MM-dd'T'HH:mm:ss.SSS'Z',UTC}","log.level":"%customLevel","message":"%msg","logger":"%logger","thread":"%thread"}%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 루트 로거 설정 -->
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
