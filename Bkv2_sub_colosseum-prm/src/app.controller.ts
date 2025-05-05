@@ -18,7 +18,7 @@ export class AppController {
     const promotionTargetUsers = await this.appService.getPromotionTargets(score)
     this.logger.log("Get promotion target info")
     this.logger.log(`Condition: score is lower then ${score}`)
-    this.logger.log("This request was processed normally")
+    this.logger.log("Detected normal response duration")
     return {
       "message": promotionTargetUsers,
     }

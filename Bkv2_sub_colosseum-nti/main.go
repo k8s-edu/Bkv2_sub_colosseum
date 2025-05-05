@@ -161,7 +161,7 @@ func getCurrentCursor(w http.ResponseWriter, r *http.Request) {
 		cursor = "0"
 	}
 
-	log.Info().Msg("This request was processed normally")
+	log.Info().Msg("Detected normal response duration")
 	response := ScanResponse{Cursor: cursor}
 
 	w.Header().Set("Content-Type", "application/json")

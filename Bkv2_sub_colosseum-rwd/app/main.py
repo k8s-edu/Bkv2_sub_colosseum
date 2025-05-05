@@ -47,7 +47,7 @@ async def check_winner(user_id: int):
         "is_winner": is_winner,
         "message": "축하합니다! 당첨되셨습니다!" if is_winner else "아쉽게도 당첨되지 않았습니다."
     }
-    logger.info("This request was processed normally")
+    logger.info("Detected normal response duration")
     logger.info(f"Winner check completed for user {user_id}", extra={"result": result})
     return result
 

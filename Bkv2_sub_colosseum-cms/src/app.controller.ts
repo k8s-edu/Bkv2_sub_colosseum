@@ -18,7 +18,7 @@ export class AppController {
   async getParticipateUser(): Promise<Object> {
     this.logger.log("Get users info")
     const participateUser = await this.appService.getParticipateUser()
-    this.logger.log("This request was processed normally")
+    this.logger.log("Detected normal response duration")
     return {
       "message": participateUser
     }
