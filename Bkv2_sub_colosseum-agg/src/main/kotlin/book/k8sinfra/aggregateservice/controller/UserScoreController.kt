@@ -58,13 +58,13 @@ class ScoreController(private val userScoreService: UserScoreService) {
             logger.info("User score by user ID: $userId not found, creating new score to ${scoreRequest.score}")
             userScoreService.saveUserScore(userId, scoreRequest.score)
         }
-        // culprit code, start to remove
+        // start
+        // culprit code > delete, logger.info > modify from abnormal to normal
         val milliseconds = (1000..3000).random().toLong()
         simulateCpuLoadWithHmac(milliseconds)
         logger.warn("Detected abnormal response duration")
-        // end
-        // remove comment symbol at below
         // logger.info("Detected normal response duration")
+        // end
         return UpdateScoreResponse(status = HttpStatus.OK.value(), message = "success", score = savedScore)
     }
 

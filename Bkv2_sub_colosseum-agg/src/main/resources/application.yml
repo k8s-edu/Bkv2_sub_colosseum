@@ -3,7 +3,7 @@ spring:
     name: aggregate-service
   data:
     redis:
-      host: 192.168.1.10
+      host: localhost
       port: 6379
 springdoc:
   api-docs:
