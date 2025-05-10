@@ -1,5 +1,6 @@
 package book.k8sinfra.aggregateservice.controller
 
+import io.opentelemetry.instrumentation.annotations.WithSpan
 import book.k8sinfra.aggregateservice.domain.UserScore
 import book.k8sinfra.aggregateservice.service.UserScoreService
 import io.swagger.v3.oas.annotations.Operation
@@ -22,6 +23,7 @@ class ScoreController(private val userScoreService: UserScoreService) {
     private val logger = LoggerFactory.getLogger(ScoreController::class.java)
 
     @GetMapping("/{userId}")
+    @WithSpan
     @Operation(summary = "Get a score by user ID", description = "Get a score by user ID", tags = ["score"])
     @ApiResponses(
         value = [
@@ -41,6 +43,7 @@ class ScoreController(private val userScoreService: UserScoreService) {
     }
 
     @PutMapping("/{userId}")
+    @WithSpan
     @Operation(summary = "Update a score by user ID", description = "Update a score by user ID", tags = ["score"])
     fun updateScore(@PathVariable userId: Long, @RequestBody scoreRequest: UpdateScoreRequest): UpdateScoreResponse {
         val savedScore = userScoreService.saveUserScore(userId, scoreRequest.score)
@@ -49,6 +52,7 @@ class ScoreController(private val userScoreService: UserScoreService) {
     }
 
     @PostMapping("/{userId}")
+    @WithSpan
     @Operation(summary = "Store accumulate a score by user ID", description = "Store accumulate a score by user ID", tags = ["score"])
     fun upsertScore(@PathVariable userId: Long, @RequestBody scoreRequest: UpdateScoreRequest): UpdateScoreResponse {
         val savedScore = userScoreService.getUserScore(userId).map {
@@ -68,6 +72,7 @@ class ScoreController(private val userScoreService: UserScoreService) {
         return UpdateScoreResponse(status = HttpStatus.OK.value(), message = "success", score = savedScore)
     }
 
+    @WithSpan
     fun simulateCpuLoadWithHmac(durationMillis: Long) {
         val start = System.currentTimeMillis()
         val secret = "verySecretKey".toByteArray()
