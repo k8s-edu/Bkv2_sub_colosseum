@@ -5,7 +5,10 @@ import random
 import logging
 import json
 
+import redis
 import os
+
+conn = redis.Redis(host=os.getenv("REDIS_HOST"), port=os.getenv("REDIS_PORT"), db=0)
 
 # JSON 형식의 로그 포맷터 설정
 class JsonFormatter(logging.Formatter):
@@ -39,7 +42,10 @@ async def root():
 
 @app.get("/api/v1/check-winner/{user_id}")
 async def check_winner(user_id: int):
-    
+
+    if not conn.exists(f'userScore:{user_id}'):
+        logger.info(f"User {user_id} not found in Redis")
+
     is_winner = random.choice(slot)
     logger.info("The API processed logic going smoothly")
     result = {
